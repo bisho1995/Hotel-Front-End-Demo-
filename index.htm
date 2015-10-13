@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Cabin">
+        <style>
+            #container
+            {
+                width:100%;
+                height:100%;
+                position: relative;
+                left:0px;
+                overflow: hidden;
+            }
+            #splash
+            {
+                position: relative;
+                left: -5px;
+            }
+            body
+            {
+                width:100%;
+                height:100%;
+                background: black;
+            }
+            #button1
+            {
+                z-index: 2;
+                position: absolute;
+                bottom: 10%;
+                left:37%;
+                margin: 0px auto;
+                width:25%;
+                font-size: 2em;
+                padding:2%;
+                background: #25252d;
+                color:white;
+            }
+			#logo
+			{
+				color:white;
+				font-size:8em;
+				position:absolute;
+				z-index:2;
+				top:0%;
+				left:36%;
+			}
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>
+            $(document).ready(
+                function()
+                {
+                    animate();
+                    keysDisable();
+                    $('body').css('overflow','hidden');
+                    $('#splash').css('height',$(window).height()).css('width',$(document).width());
+                }
+            );
+            function keysDisable()
+            {
+                $('body').keypress(function(e)
+                                     {
+                                         e.preventDefault();
+                                        //alert(1);
+                                        return false;
+                                     });
+            }
+            function animate()
+            {
+                $('#splash').css('position','fixed').animate({height:'108%',width: '103%'},8000,function()
+                {
+                    $('#button1').css('border','6px solid green');
+                });
+            }
+        </script>
+    </head>
+    <body>
+		<div id="logo">D'levatio</div>
+        <div id="container" align="center">
+            <img id="splash" width="100%" height="100%" src="images/splashScreen.jpg" align="left">
+        </div>
+        <a href="fiveStar.htm"><input type="button" id="button1" value=" Get Started "></a>
+    </body>
+</html>
